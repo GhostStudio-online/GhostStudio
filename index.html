@@ -1,11 +1,377 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GhostStudio — Студия Minecraft: товары, услуги, партнёры</title>
+    <meta name="description" content="GhostStudio — студия Minecraft. Товары и услуги с моментальной отправкой. Работаем с популярными платформами. Поддержка 24/7." />
+    <link rel="canonical" href="https://ghoststudio.dev/" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Twitter for SEO -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="GhostStudio — Студия Minecraft" />
+    <meta property="og:description" content="Товары и услуги для Minecraft. Быстрая доставка, надёжные партнёры." />
+    <meta property="og:url" content="https://ghoststudio.dev/" />
+    <meta property="og:image" content="https://ghoststudio.dev/og-image.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="GhostStudio — Студия Minecraft" />
+    <meta name="twitter:description" content="Товары и услуги для Minecraft. Быстрая доставка, надёжные партнёры." />
+    <meta name="twitter:image" content="https://ghoststudio.dev/og-image.jpg" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" />
+
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#2563eb', // --primary
+              'primary-dark': '#1d4ed8', // --primary-dark
+              secondary: '#3b82f6', // --secondary
+            },
+            boxShadow: {
+              soft: '0 10px 25px rgba(0,0,0,0.08)'
+            }
+          }
+        }
+      }
+    </script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Base variables to mirror user's palette (optional) -->
+    <style>
+      :root{
+        --primary: #2563eb;  /* 600 */
+        --primary-dark: #1d4ed8; /* 700 */
+        --secondary: #3b82f6; /* 500 */
+      }
+      /* Support classes from the user's header snippet */
+      .snt-text{font-weight:800; letter-spacing:0.02em}
+      .hnl-text{font-weight:600}
+      .sos-con a{display:inline-flex; align-items:center; gap:.2rem}
+      .sos-links{margin-right:.25rem}
+    </style>
+
+    <!-- JSON-LD (Organization) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "GhostStudio",
+        "url": "https://ghoststudio.dev/",
+        "logo": "https://ghoststudio.dev/logo.png",
+        "sameAs": [
+          "https://t.me/ghoststudiodev",
+          "https://funpay.com/ghoststudiodev"
+        ]
+      }
+    </script>
+  </head>
+  <body class="min-h-screen bg-gray-50 text-gray-900 tracking-tight">
+    <!-- Header (uses user's structure, enhanced with Tailwind) -->
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="flex items-center justify-between h-16">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-primary/10 grid place-items-center">
+              <i class="fa-solid fa-ghost text-primary"></i>
+            </div>
+            <h3 class="snt-text text-lg sm:text-xl text-gray-900">GhostStudio</h3>
+          </div>
+          <nav class="hidden md:flex items-center gap-6 nav-links">
+            <a href="#home" class="hnl-text text-sm text-gray-700 hover:text-primary">Главная</a>
+            <a href="#about" class="hnl-text text-sm text-gray-700 hover:text-primary">Про нас</a>
+            <a href="#products" class="hnl-text text-sm text-gray-700 hover:text-primary">Товары</a>
+            <a href="#partners" class="hnl-text text-sm text-gray-700 hover:text-primary">C кем работаем?</a>
+            <a href="#contacts" class="hnl-text text-sm text-gray-700 hover:text-primary">Контакты</a>
+          </nav>
+          <div class="hidden md:flex items-center gap-4 sos-con">
+            <a href="https://funpay.com/your_shop" target="_blank" rel="noopener" class="text-sm font-semibold text-primary hover:text-primary-dark">
+              <i class="fa-solid fa-f sos-links"></i> FunPay
+            </a>
+            <a href="https://t.me/your_telegram" target="_blank" rel="noopener" class="text-sm font-semibold text-primary hover:text-primary-dark">
+              <i class="fa-brands fa-telegram sos-links"></i> Telegram
+            </a>
+          </div>
+          <!-- Mobile menu button -->
+          <button id="menuBtn" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-xl border border-gray-200">
+            <i class="fa-solid fa-bars text-xl"></i>
+          </button>
+        </div>
+        <!-- Mobile dropdown -->
+        <div id="mobileMenu" class="md:hidden hidden pb-4">
+          <nav class="grid gap-2">
+            <a href="#home" class="px-3 py-2 rounded-lg hover:bg-gray-100">Главная</a>
+            <a href="#about" class="px-3 py-2 rounded-lg hover:bg-gray-100">Про нас</a>
+            <a href="#products" class="px-3 py-2 rounded-lg hover:bg-gray-100">Товары</a>
+            <a href="#partners" class="px-3 py-2 rounded-lg hover:bg-gray-100">C кем работаем?</a>
+            <a href="#contacts" class="px-3 py-2 rounded-lg hover:bg-gray-100">Контакты</a>
+            <div class="flex items-center gap-4 px-3 pt-2 sos-con">
+              <a href="https://funpay.com/your_shop" target="_blank" rel="noopener" class="text-primary font-semibold">
+                <i class="fa-solid fa-f sos-links"></i> FunPay
+              </a>
+              <a href="https://t.me/your_telegram" target="_blank" rel="noopener" class="text-primary font-semibold">
+                <i class="fa-brands fa-telegram sos-links"></i> Telegram
+              </a>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section id="home" class="relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
+        <div class="grid lg:grid-cols-2 gap-10 items-center">
+          <div>
+            <h1 class="text-3xl sm:text-5xl font-extrabold leading-tight">
+              Товары и услуги для <span class="text-primary">Minecraft</span>
+            </h1>
+            <p class="mt-4 text-gray-600 text-base sm:text-lg">
+              Магазин GhostStudio: моментальная доставка, прозрачные цены, поддержка без выходных.
+            </p>
+            <div class="mt-6 flex flex-wrap gap-3">
+              <a href="#products" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-primary text-white font-semibold shadow-soft hover:bg-primary-dark">
+                <i class="fa-solid fa-cart-shopping"></i>
+                Перейти к товарам
+              </a>
+              <a href="#contacts" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-gray-300 font-semibold hover:bg-gray-100">
+                <i class="fa-regular fa-message"></i>
+                Связаться
+              </a>
+            </div>
+            <ul class="mt-6 grid sm:grid-cols-3 gap-4 text-sm text-gray-700">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-primary"></i> Надёжные партнёры</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-primary"></i> Быстрая доставка</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-primary"></i> Поддержка 24/7</li>
+            </ul>
+          </div>
+          <div class="relative">
+            <div class="aspect-[4/3] rounded-2xl bg-gradient-to-br from-primary/15 via-secondary/15 to-primary-dark/15 border border-gray-200 shadow-soft grid place-items-center">
+              <i class="fa-solid fa-cubes text-6xl opacity-60"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products -->
+    <section id="products" class="py-14 sm:py-20 bg-white border-t border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="flex items-end justify-between gap-4 mb-8">
+          <div>
+            <h2 class="text-2xl sm:text-3xl font-extrabold">Товары</h2>
+            <p class="text-gray-600 mt-1">Кликайте по карточке — перейдёте на площадку с покупкой.</p>
+          </div>
+          <div class="hidden sm:block">
+            <a href="https://funpay.com/your_shop" target="_blank" rel="noopener" class="text-sm font-semibold text-primary hover:text-primary-dark">
+              Весь каталог на FunPay <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Product Card Template -->
+          <a href="https://funpay.com/l/your_item_1" target="_blank" rel="noopener" class="group block rounded-2xl border border-gray-200 bg-white p-5 hover:shadow-soft hover:-translate-y-0.5 transition">
+            <div class="flex items-start justify-between gap-4">
+              <h3 class="font-bold text-lg">GhostRelog</h3>
+              <span class="inline-flex items-center px-2 py-1 text-xs font-semibold rounded-full bg-primary/10 text-primary">Моментально</span>
+            </div>
+            <p class="mt-2 text-sm text-gray-600">Плагин на антирелог с очень огромным функционалом!</p>
+            <div class="mt-4 flex items-center justify-between">
+              <div class="text-xl font-extrabold">299₴</div>
+              <div class="opacity-0 group-hover:opacity-100 transition">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://funpay.com/l/your_item_2" target="_blank" rel="noopener" class="group block rounded-2xl border border-gray-200 bg-white p-5 hover:shadow-soft hover:-translate-y-0.5 transition">
+            <div class="flex items-start justify-between gap-4">
+              <h3 class="font-bold text-lg">GhostGrant</h3>
+              <span class="inline-flex items-center px-2 py-1 text-xs font-semibold rounded-full bg-secondary/10 text-secondary">Хит</span>
+            </div>
+            <p class="mt-2 text-sm text-gray-600">Плагин на грант с очень огромным функционалом!</p>
+            <div class="mt-4 flex items-center justify-between">
+              <div class="text-xl font-extrabold">599₴</div>
+              <div class="opacity-0 group-hover:opacity-100 transition">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://funpay.com/l/your_item_3" target="_blank" rel="noopener" class="group block rounded-2xl border border-gray-200 bg-white p-5 hover:shadow-soft hover:-translate-y-0.5 transition">
+            <div class="flex items-start justify-between gap-4">
+              <h3 class="font-bold text-lg">Прайм/Подписки</h3>
+              <span class="inline-flex items-center px-2 py-1 text-xs font-semibold rounded-full bg-primary-dark/10 text-primary-dark">Скидка</span>
+            </div>
+            <p class="mt-2 text-sm text-gray-600">Официальные подписки и сервисы. Автопродление отключаемо.</p>
+            <div class="mt-4 flex items-center justify-between">
+              <div class="text-xl font-extrabold">от 149₴</div>
+              <div class="opacity-0 group-hover:opacity-100 transition">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://funpay.com/l/your_item_4" target="_blank" rel="noopener" class="group block rounded-2xl border border-gray-200 bg-white p-5 hover:shadow-soft hover:-translate-y-0.5 transition">
+            <div class="flex items-start justify-between gap-4">
+              <h3 class="font-bold text-lg">Товар 4</h3>
+              <span class="inline-flex items-center px-2 py-1 text-xs font-semibold rounded-full bg-primary-dark/10 text-primary-dark">Скидка</span>
+            </div>
+            <p class="mt-2 text-sm text-gray-600">Официальные подписки и сервисы. Автопродление отключаемо.</p>
+            <div class="mt-4 flex items-center justify-between">
+              <div class="text-xl font-extrabold">от 149₴</div>
+              <div class="opacity-0 group-hover:opacity-100 transition">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Mobile: full catalog link -->
+        <div class="sm:hidden mt-6 text-center">
+          <a href="https://funpay.com/your_shop" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary-dark">
+            Весь каталог на FunPay <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-14 sm:py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-10 items-center">
+        <div class="order-2 lg:order-1">
+          <h2 class="text-2xl sm:text-3xl font-extrabold">Про нас</h2>
+          <p class="mt-3 text-gray-700">GhostStudio — команда энтузиастов Minecraft. Мы ценим скорость, безопасность и честность. Каждая позиция проходит проверку, а доставка автоматизирована.</p>
+          <ul class="mt-5 grid sm:grid-cols-2 gap-3 text-sm text-gray-700">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-shield-halved text-primary"></i> Гарантия возврата</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-bolt text-primary"></i> Быстрая доставка</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-headset text-primary"></i> Поддержка 24/7</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-star text-primary"></i> Тысячи довольных клиентов</li>
+          </ul>
+        </div>
+        <div class="order-1 lg:order-2">
+          <div class="aspect-[4/3] rounded-2xl border border-gray-200 bg-white shadow-soft grid place-items-center">
+            <i class="fa-solid fa-shield-cat text-6xl opacity-60"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Partners -->
+    <section id="partners" class="py-14 sm:py-20 bg-white border-y border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <h2 class="text-2xl sm:text-3xl font-extrabold">С кем работаем?</h2>
+        <p class="mt-2 text-gray-600">Надёжные платформы и продавцы, проверенные временем.</p>
+        <div class="mt-8 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-4">
+          <a href="https://funpay.com/" target="_blank" rel="noopener" class="group rounded-xl border border-gray-200 bg-white p-4 grid place-items-center hover:shadow-soft">
+            <i class="fa-solid fa-f text-3xl text-primary"></i>
+            <span class="sr-only">FunPay</span>
+          </a>
+          <a href="#" class="group rounded-xl border border-gray-200 bg-white p-4 grid place-items-center hover:shadow-soft">
+            <i class="fa-brands fa-discord text-3xl text-primary"></i>
+            <span class="sr-only">Discord</span>
+          </a>
+          <a href="#" class="group rounded-xl border border-gray-200 bg-white p-4 grid place-items-center hover:shadow-soft">
+            <i class="fa-brands fa-telegram text-3xl text-primary"></i>
+            <span class="sr-only">Telegram</span>
+          </a>
+          <a href="#" class="group rounded-xl border border-gray-200 bg-white p-4 grid place-items-center hover:shadow-soft">
+            <i class="fa-solid fa-store text-3xl text-primary"></i>
+            <span class="sr-only">Marketplace</span>
+          </a>
+          <a href="#" class="group rounded-xl border border-gray-200 bg-white p-4 grid place-items-center hover:shadow-soft">
+            <i class="fa-solid fa-credit-card text-3xl text-primary"></i>
+            <span class="sr-only">Payments</span>
+          </a>
+          <a href="#" class="group rounded-xl border border-gray-200 bg-white p-4 grid place-items-center hover:shadow-soft">
+            <i class="fa-solid fa-shield-halved text-3xl text-primary"></i>
+            <span class="sr-only">Security</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacts -->
+    <section id="contacts" class="py-14 sm:py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-10">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold">Контакты</h2>
+          <p class="mt-2 text-gray-600">Напишите нам — поможем подобрать товар или решим вопрос.</p>
+          <div class="mt-6 grid gap-3 text-gray-800">
+            <a href="https://t.me/your_telegram" target="_blank" rel="noopener" class="inline-flex items-center gap-3">
+              <span class="w-10 h-10 rounded-xl bg-primary/10 grid place-items-center"><i class="fa-brands fa-telegram"></i></span>
+              <span class="font-semibold hover:text-primary">Telegram</span>
+            </a>
+            <a href="mailto:hello@ghoststudio.dev" class="inline-flex items-center gap-3">
+              <span class="w-10 h-10 rounded-xl bg-primary/10 grid place-items-center"><i class="fa-regular fa-envelope"></i></span>
+              <span class="font-semibold hover:text-primary">hello@ghoststudio.dev</span>
+            </a>
+          </div>
+        </div>
+        <form class="bg-white rounded-2xl border border-gray-200 p-6 shadow-soft">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-semibold mb-1">Имя</label>
+              <input type="text" class="w-full rounded-xl border-gray-300 focus:border-primary focus:ring-primary" placeholder="Ваше имя" required />
+            </div>
+            <div>
+              <label class="block text-sm font-semibold mb-1">Телеграм</label>
+              <input type="text" class="w-full rounded-xl border-gray-300 focus:border-primary focus:ring-primary" placeholder="@username" />
+            </div>
+            <div class="sm:col-span-2">
+              <label class="block text-sm font-semibold mb-1">Сообщение</label>
+              <textarea rows="4" class="w-full rounded-xl border-gray-300 focus:border-primary focus:ring-primary" placeholder="Опишите вопрос"></textarea>
+            </div>
+          </div>
+          <button type="submit" class="mt-4 inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-primary text-white font-semibold hover:bg-primary-dark">
+            <i class="fa-regular fa-paper-plane"></i>
+            Отправить
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10 border-t border-gray-200 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-sm text-gray-600">© <span id="year"></span> GhostStudio. Все права защищены.</p>
+        <nav class="flex items-center gap-4 text-sm">
+          <a href="#about" class="hover:text-primary">Про нас</a>
+          <a href="#partners" class="hover:text-primary">Партнёры</a>
+          <a href="#contacts" class="hover:text-primary">Контакты</a>
+        </nav>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+      // Mobile menu toggle
+      const btn = document.getElementById('menuBtn');
+      const menu = document.getElementById('mobileMenu');
+      btn?.addEventListener('click', ()=> menu.classList.toggle('hidden'));
+
+      // Smooth scroll for in-page links
+      document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', (e) => {
+          const id = a.getAttribute('href');
+          if(id.length > 1){
+            e.preventDefault();
+            document.querySelector(id)?.scrollIntoView({behavior:'smooth', block:'start'});
+            menu?.classList.add('hidden');
+          }
+        });
+      });
+
+      // Year
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
 </html>
