@@ -7,6 +7,11 @@
     <link rel="shortcut icon" href=".src/images/favicon.png" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
 <body class="min-h-screen bg-black">
     <header class="fixed top-0 left-0 w-full z-50 bg-zinc-950/70 border-b border-gray-600 backdrop-blur-sm">
@@ -19,16 +24,14 @@
                     <h3 class="text-white tracking-wide font-extrabold text-lg md:text-xl">GhostStudio</h3>
                 </div>
                 <nav class="hidden md:flex justify-center items-center gap-4" role="navigation" aria-label="Меню навигации">
-                    <a href="#about-us" class="relative text-sm font-semibold tracking-tight text-slate-100 transition-colors duration-[250ms] after:content-[''] after:absolute after:h-[2px] after:w-0 after:left-0 after:bottom-[-4px] after:bg-blue-600 after:transition-[width] after:duration-300 hover:after:w-full hover:text-blue-300">Про нас</a>
-                    <a href="#history" class="relative text-sm font-semibold tracking-tight text-slate-100 transition-colors duration-[250ms] after:content-[''] after:absolute after:h-[2px] after:w-0 after:left-0 after:bottom-[-4px] after:bg-blue-600 after:transition-[width] after:duration-300 hover:after:w-full hover:text-blue-300">Наша история</a>
-                    <a href="#products" class="relative text-sm font-semibold tracking-tight text-slate-100 transition-colors duration-[250ms] after:content-[''] after:absolute after:h-[2px] after:w-0 after:left-0 after:bottom-[-4px] after:bg-blue-600 after:transition-[width] after:duration-300 hover:after:w-full hover:text-blue-300">Товары</a>
-                    <a href="#team" class="relative text-sm font-semibold tracking-tight text-slate-100 transition-colors duration-[250ms] after:content-[''] after:absolute after:h-[2px] after:w-0 after:left-0 after:bottom-[-4px] after:bg-blue-600 after:transition-[width] after:duration-300 hover:after:w-full hover:text-blue-300">Сотрудники</a>
-                    <a href="#contacts" class="relative text-sm font-semibold tracking-tight text-slate-100 transition-colors duration-[250ms] after:content-[''] after:absolute after:h-[2px] after:w-0 after:left-0 after:bottom-[-4px] after:bg-blue-600 after:transition-[width] after:duration-300 hover:after:w-full hover:text-blue-300">Контакты</a>
+                    <a href="#about-us" class="relative text-sm font-semibold tracking-tight text-slate-100 transition-colors duration-[250ms] after:content-[''] after:absolute after:h-[2px] after:w-0 after:left-0 after:bottom-[-4px] after:bg-blue-600 after:transition-[width] after:duration-300 hover:after:w-full hover:text-blue-400">Про нас</a>
+                    <a href="#products" class="relative text-sm font-semibold tracking-tight text-slate-100 transition-colors duration-[250ms] after:content-[''] after:absolute after:h-[2px] after:w-0 after:left-0 after:bottom-[-4px] after:bg-blue-600 after:transition-[width] after:duration-300 hover:after:w-full hover:text-blue-400">Товары</a>
+                    <a href="#partners" class="relative text-sm font-semibold tracking-tight text-slate-100 transition-colors duration-[250ms] after:content-[''] after:absolute after:h-[2px] after:w-0 after:left-0 after:bottom-[-4px] after:bg-blue-600 after:transition-[width] after:duration-300 hover:after:w-full hover:text-blue-400">Партнеры</a>
+                    <a href="#team" class="relative text-sm font-semibold tracking-tight text-slate-100 transition-colors duration-[250ms] after:content-[''] after:absolute after:h-[2px] after:w-0 after:left-0 after:bottom-[-4px] after:bg-blue-600 after:transition-[width] after:duration-300 hover:after:w-full hover:text-blue-400">Сотрудники</a>
+                    <a href="#contacts" class="relative text-sm font-semibold tracking-tight text-slate-100 transition-colors duration-[250ms] after:content-[''] after:absolute after:h-[2px] after:w-0 after:left-0 after:bottom-[-4px] after:bg-blue-600 after:transition-[width] after:duration-300 hover:after:w-full hover:text-blue-400">Контакты</a>
                 </nav>
                 <div class="hidden md:flex items-center justify-center">
-                    <button class="px-4 py-2 border border-blue-500/90 rounded-lg text-white transition duration-[250ms] hover:bg-blue-600 hover:shadow-[0_0_20px_0] hover:shadow-blue-700 active:scale-95" aria-label="Авторизация">
-                      <i class="fa-brands fa-discord"></i> Авторизация
-                    </button>
+                    <button class="px-4 py-2 border border-blue-500/90 rounded-lg text-white transition duration-[250ms] hover:bg-blue-600 hover:shadow-[0_0_20px_0] hover:shadow-blue-700 active:scale-95" aria-label="Авторизация"><i class="fa-brands fa-discord"></i> Авторизация</button>
                 </div>
                 <button class="w-10 h-10 rounded-xl border border-gray-800 grid place-items-center text-white text-lg md:hidden" aria-label="Открыть меню">
                     <i class="fa-solid fa-bars"></i>
@@ -37,9 +40,145 @@
         </div>
     </header>
     <main>
-        <div class="w-full h-screen bg-zinc-950">
-            <div class="max-w-7xl mx-auto px-4 py-16 text-white"></div>
+        <!-- HERO CONTAINER -->
+        <!-- НЕ ДОДЕЛАНА ВТОРАЯ СЕКЦИЯ!!!! -->
+        <div class="w-full h-screen bg-zinc-950 flex items-center justify-center">
+            <div class="max-w-7xl mx-auto px-2 md:px-4 py-4 md:py-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="flex flex-col items-start justify-center gap-4 md:gap-6 px-2">
+                        <h1 class="text-4xl sm:text-5xl md:text-6xl text-gray-100 font-bold leading-12 md:leading-15 tracking-tight">Продвинутые инструменты для <span class="text-blue-600">Minecraft</span> серверов</h1>
+                        <p class="text-md md:text-lg text-gray-400 font-normal leading-tight">В GhostStudio мы предлагаем лучшие плагины, сборки серверов и карты по низким ценам, но с большим качеством работы.</p>
+                        <div class="flex items-center justify-between gap-4">
+                            <a href="#products" class="px-6 py-3 border border-blue-600 rounded-lg text-lg md:text-md tracking-tight text-white bg-blue-600 transition duration-[250ms] hover:scale-105 hover:shadow-[0_0_20px_0] hover:shadow-blue-700 active:scale-95" aria-label="Перейти к доступным товарам"><i class="fa-solid fa-cart-shopping"></i> К товарам</a>
+                            <button class="px-6 py-3 border border-gray-600 rounded-lg text-lg md:text-md tracking-tight text-gray-100 transition duration-[250ms] hover:scale-105 active:scale-95" aria-label="Перейти к информации про нас">Про нас</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+        <section id="about-us">
+            <!-- НЕ СДЕЛАН ВООБЩЕ!!!! -->
+            <div class="w-full bg-black py-4 md:py-6">
+                <div class="max-w-7xl mx-auto px-4 py-2 md:px-6 md:py-4 flex flex-col items-start gap-6"></div>
+            </div>
+        </section>
+        <section id="products">
+            <div class="w-full bg-zinc-950 py-4 md:py-6">
+                <div class="max-w-7xl mx-auto px-4 py-2 md:px-6 md:py-4 flex flex-col items-start gap-6">
+                    <div>
+                        <h3 class="text-2xl text-gray-100 font-bold tracking-tight">Товары:</h3>
+                        <p class="mt-1 text-sm text-gray-300 tracking-tight">Кликайте по карточке — перейдёте на площадку с покупкой.</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 justify-center">
+                        <a class="p-5 block border border-gray-600 rounded-2xl transition duration-200 hover:shadow-[0_0_15px_5px] hover:shadow-blue-500 hover:border-blue-700 hover:scale-105" href="https://funpay.com" target="_blank">
+                            <div class="flex items-start justify-between gap-4">
+                                <h3 class="text-lg text-gray-100 font-bold tracking-tight">GhostRelog</h3>
+                                <span class="inline-flex items-center px-2 py-1 text-xs font-semibold rounded-full bg-blue-600/90 text-gray-100">Скидка -90%</span>
+                            </div>
+                            <p class="mt-2 text-sm text-gray-400">Лучший плагин на анти-релог для серверов майнкрафт. Имеет гибкую настройки, огромные возможности настройки под ваш вкус.</p>
+                            <div class="mt-4 flex items-center justify-between">
+                                <div class="flex items-center justify-center gap-2">
+                                    <h4 class="text-lg text-white font-bold tracking-tight">40₴</h4>
+                                    <span class="text-md text-gray-500 font-semibold tracking-tight line-through">(400₴)</span>
+                                </div>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-md text-gray-100 font-medium"></i>
+                            </div>
+                        </a>
+                        <a class="p-5 block border border-gray-600 rounded-2xl transition duration-200 hover:shadow-[0_0_15px_5px] hover:shadow-blue-500 hover:border-blue-700 hover:scale-105" href="https://funpay.com" target="_blank">
+                            <div class="flex items-start justify-between gap-4">
+                                <h3 class="text-lg text-gray-100 font-bold tracking-tight">GhostGrant</h3>
+                                <span class="inline-flex items-center px-2 py-1 text-xs font-semibold rounded-full bg-blue-600/90 text-gray-100">Скидка -90%</span>
+                            </div>
+                            <p class="mt-2 text-sm text-gray-400">Плагин с широкими возможностями настройки для выдачи донатов.</p>
+                            <div class="mt-4 flex items-center justify-between">
+                                <div class="flex items-center justify-center gap-2">
+                                    <h4 class="text-lg text-white font-bold tracking-tight">55₴</h4>
+                                    <span class="text-md text-gray-500 font-semibold tracking-tight line-through">(550₴)</span>
+                                </div>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-md text-gray-100 font-medium"></i>
+                            </div>
+                        </a>
+                        <a class="p-5 block border border-gray-600 rounded-2xl transition duration-200 hover:shadow-[0_0_15px_5px] hover:shadow-blue-500 hover:border-blue-700 hover:scale-105" href="https://funpay.com" target="_blank">
+                            <div class="flex items-start justify-between gap-4">
+                                <h3 class="text-lg text-gray-100 font-bold tracking-tight">GhostRewards</h3>
+                                <span class="inline-flex items-center px-2 py-1 text-xs font-semibold rounded-full bg-blue-600/90 text-gray-100">Скидка -90%</span>
+                            </div>
+                            <p class="mt-2 text-sm text-gray-400">Плагин на подарки за время для игроков которые играют у вас на сервере.</p>
+                            <div class="mt-4 flex items-center justify-between">
+                                <div class="flex items-center justify-center gap-2">
+                                    <h4 class="text-lg text-white font-bold tracking-tight">20₴</h4>
+                                    <span class="text-md text-gray-500 font-semibold tracking-tight line-through">(200₴)</span>
+                                </div>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-md text-gray-100 font-medium"></i>
+                            </div>
+                        </a>
+                        <a class="p-5 block border border-gray-600 rounded-2xl transition duration-200 hover:shadow-[0_0_15px_5px] hover:shadow-blue-500 hover:border-blue-700 hover:scale-105" href="https://funpay.com" target="_blank">
+                            <div class="flex items-start justify-between gap-4">
+                                <h3 class="text-lg text-gray-100 font-bold tracking-tight">GhostRewards</h3>
+                                <span class="inline-flex items-center px-2 py-1 text-xs font-semibold rounded-full bg-blue-600/90 text-gray-100">Скидка -90%</span>
+                            </div>
+                            <p class="mt-2 text-sm text-gray-400">Плагин на подарки за время для игроков которые играют у вас на сервере.</p>
+                            <div class="mt-4 flex items-center justify-between">
+                                <div class="flex items-center justify-center gap-2">
+                                    <h4 class="text-lg text-white font-bold tracking-tight">20₴</h4>
+                                    <span class="text-md text-gray-500 font-semibold tracking-tight line-through">(200₴)</span>
+                                </div>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-md text-gray-100 font-medium"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="partners">
+            <!-- НЕ СДЕЛАН ВООБЩЕ!!!! -->
+            <div class="w-full bg-black py-4 md:py-6">
+                <div class="max-w-7xl mx-auto px-4 py-2 md:px-6 md:py-4 flex flex-col items-start gap-6"></div>
+            </div>
+        </section>
+        <section id="team">
+            <!-- НЕ СДЕЛАН ВООБЩЕ!!!! -->
+            <div class="w-full bg-zinc-950 py-4 md:py-6">
+                <div class="max-w-7xl mx-auto px-4 py-2 md:px-6 md:py-4 flex flex-col items-start gap-6"></div>
+            </div>
+        </section>
+        <section id="contacts">
+            <!-- НЕ СДЕЛАН ВООБЩЕ!!!! -->
+            <div class="w-full bg-black py-4 md:py-6">
+                <div class="max-w-7xl mx-auto px-4 py-2 md:px-6 md:py-4 flex flex-col items-start gap-6"></div>
+            </div>
+        </section>
     </main>
+
+    <footer class="w-full bg-zinc-950 border-t border-gray-600">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 py-2">
+                <!-- Аватарка + название -->
+                <div></div>
+                <!-- Ссылки которые в header -->
+                <div class="flex flex-col items-start py-4 md:py-8">
+                    <h3 class="text-lg text-gray-100 font-bold tracking-tight">Навигация по сайту:</h3>
+                    <nav class="flex flex-col items-start justify-center mt-2">
+                        <a href="#about-us" class="text-sm text-gray-200 font-semibold tracking-tight transition-colors duration-200 hover:text-blue-500">Про нас</a>
+                        <a href="#products" class="text-sm text-gray-200 font-semibold tracking-tight transition-colors duration-200 hover:text-blue-500">Товары</a>
+                        <a href="#partners" class="text-sm text-gray-200 font-semibold tracking-tight transition-colors duration-200 hover:text-blue-500">Партнеры</a>
+                        <a href="#team" class="text-sm text-gray-200 font-semibold tracking-tight transition-colors duration-200 hover:text-blue-500">Сотрудники</a>
+                        <a href="#contacts" class="text-sm text-gray-200 font-semibold tracking-tight transition-colors duration-200 hover:text-blue-500">Контакты</a>
+                    </nav>
+                </div>
+                <!-- Соцсети -->
+                <div class="flex flex-col items-start py-4 md:py-8">
+                    <h3 class="text-lg text-gray-100 font-bold tracking-tight">Наши соцсети:</h3>
+                    <div class="flex flex-col items-start justify-center mt-2">
+                        <a href="#" target="_blank" class="text-sm text-gray-200 font-semibold tracking-tight transition-colors duration-200 hover:text-blue-500">Telegram</a>
+                        <a href="#" target="_blank" class="text-sm text-gray-200 font-semibold tracking-tight transition-colors duration-200 hover:text-blue-500">Discord</a>
+                        <a href="#" target="_blank" class="text-sm text-gray-200 font-semibold tracking-tight transition-colors duration-200 hover:text-blue-500">FunPay</a>
+                    </div>
+                </div>
+                <!-- Копирайт + информация -->
+                <div></div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
